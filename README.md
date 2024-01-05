@@ -1,6 +1,6 @@
-# Projet O-To-Fleet-Manager
+# Projet O-To-Rent
 
-Ce dépôt va contenir le projet fil rouge O'To Fleet Manager.
+Ce dépôt va contenir le projet fil rouge O'To Rent.
 
 On vous recommande d'ajouter le dépôt d'origine en tant que *remote* à votre propre dépôt afin de pouvoir *pull* les mises à jour, au besoin.
 

@@ -2,7 +2,7 @@
 
 Ce dépôt va contenir le projet fil rouge O'To Rent.
 
-On vous recommande de l'ajouter en remote à votre propre dépôt afin de pouvoir `pull` les mises à jour, au besoin.
+On vous recommande d'ajouter le dépôt d'origine en tant que *remote* à votre propre dépôt afin de pouvoir *pull* les mises à jour, au besoin.
 
 ```bash
 git remote add upstream git@github.com:O-clock-Chimere/O-To-Rent.git
@@ -13,7 +13,7 @@ Par exemple, pour obtenir les données spécifiques à une branche :
 git pull upstream <branche>
 ```
 
-Ou, vous pouvez directement `checkout` sur la branche en question :
+Ou, vous pouvez directement *checkout* sur la branche en question :
 ```bash
 git checkout upstream/<branche>
 ```

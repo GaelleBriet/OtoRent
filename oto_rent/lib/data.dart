@@ -6,8 +6,7 @@ const vehicules = [
     'energyClass': 'B',
     'power': 110,
     'topspeed': 200,
-    'pic':
-        'https://www.audi-macon.fr/content/dam/iph/generic-assets/models/a4/a4-limousine-2019/stage/4096x1280_AA4_L_191004.jpg/_jcr_content/renditions/cq5dam.thumbnail.720.406.iph.png?imwidth=720&imdensity=1',
+    'pic': 'https://picsum.photos/id/111/720/400',
     'location': 'Paris',
     'price': 79.0
   },

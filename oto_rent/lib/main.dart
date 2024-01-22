@@ -9,13 +9,14 @@ void main() {
 class MainApp extends StatelessWidget {
   const MainApp({super.key});
 
+  static const String title = 'Oto Rent';
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Oto Rent',
+      title: title,
       theme: ThemeData(
         colorScheme: const ColorScheme.dark(
-          primary: Colors.cyan,
+          primary: Color(0xFF5521CE),
           secondary: Colors.blueAccent,
         ),
         textTheme: const TextTheme(
@@ -27,7 +28,7 @@ class MainApp extends StatelessWidget {
         ),
         scaffoldBackgroundColor: Colors.grey[900],
       ),
-      home: const MyHomePage(title: 'Oto Rent'),
+      home: const MyHomePage(title: title),
     );
   }
 }
@@ -44,21 +45,20 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-            title,
+        title: Text(title,
             style: TextStyle(
               color: Theme.of(context).colorScheme.primary,
-            )
-        ),
+              fontWeight: FontWeight.bold,
+            )),
         centerTitle: true,
-        backgroundColor: Colors.grey[800],
+        backgroundColor: Colors.grey[900],
         actions: [
           IconButton(
             icon: const Icon(Icons.settings),
             tooltip: 'Paramètres',
             onPressed: () {
-              ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('Une snackBar comme ça pour rien...')));
+              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                  content: Text('Une snackBar comme ça pour rien...')));
             },
             color: Colors.white,
           )
@@ -68,6 +68,9 @@ class MyHomePage extends StatelessWidget {
         itemCount: vehicules.length,
         itemBuilder: (context, index) {
           final vehicule = vehicules[index];
+          final String price = vehicule['price'] != null
+              ? vehicule['price'].toString() + '€'
+              : 'Prix inconnu';
           return Container(
             height: 100, // Define a height for the Container
             child: Card(
@@ -95,45 +98,45 @@ class MyHomePage extends StatelessWidget {
                     ),
                   ),
                   Expanded(
-                    flex: 2,
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: ListTile(
-                        title: Text(
+                      flex: 2,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: ListTile(
+                          title: Text(
                             '${vehicule['mark']} ${vehicule['model']}',
-                          style: const TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                          ),
-                        ),
-                        subtitle: Text(
-                            'Location: ${vehicule['location']}',
-                          style: const TextStyle(
-                            fontSize: 14,
-                            color: Colors.grey,
-                          ),
-                        ),
-                        trailing: Text(
-                            '${vehicule['price']}€',
-                          style: const TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.lightBlueAccent,
-                          ),
-                        ),
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) =>
-                                  VehicleDetailPage(vehicle: vehicule),
+                            style: const TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
                             ),
-                          );
-                        },
-                      ),
-                    )
-                  ),
+                          ),
+                          subtitle: Text(
+                            'Location: ${vehicule['location'] ?? 'Lieu inconnu'}',
+                            style: const TextStyle(
+                              fontSize: 14,
+                              color: Colors.grey,
+                            ),
+                          ),
+                          trailing: Text(
+                            // '${vehicule['price']}€',
+                            price,
+                            style: const TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.lightBlueAccent,
+                            ),
+                          ),
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    VehicleDetailPage(vehicle: vehicule),
+                              ),
+                            );
+                          },
+                        ),
+                      )),
                 ],
               ),
             ),

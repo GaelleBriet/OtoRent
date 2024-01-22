@@ -126,7 +126,8 @@ class MyHomePage extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => VehicleDetailPage(vehicle: vehicule),
+                              builder: (context) =>
+                                  VehicleDetailPage(vehicle: vehicule),
                             ),
                           );
                         },

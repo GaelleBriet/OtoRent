@@ -1,60 +1,60 @@
 const vehicles = [
   {
-    'mark': 'Audi',
+    'brand': 'Audi',
     'model': 'A3',
-    'zeroto100': 5.9,
+    'zeroToHundred': 5.9,
     'energyClass': 'B',
     'power': 110,
-    'topspeed': 200,
-    'pic':
+    'speed': 200,
+    'picture':
         'https://www.audi-macon.fr/content/dam/iph/generic-assets/models/a4/a4-limousine-2019/stage/4096x1280_AA4_L_191004.jpg/_jcr_content/renditions/cq5dam.thumbnail.720.406.iph.png?imwidth=720&imdensity=1',
     'location': 'Paris',
     'price': 79.0
   },
   {
-    'mark': 'Audi',
+    'brand': 'Audi',
     'model': 'A4',
-    'zeroto100': 7.9,
+    'zeroToHundred': 7.9,
     'energyClass': 'B',
     'power': 110,
-    'topspeed': 200,
-    'pic':
+    'speed': 200,
+    'picture':
         'https://www.audi-macon.fr/content/dam/iph/generic-assets/models/a4/a4-limousine-2019/stage/4096x1280_AA4_L_191004.jpg/_jcr_content/renditions/cq5dam.thumbnail.720.406.iph.png?imwidth=720&imdensity=1',
     'location': 'Nantes',
     'price': 79.0
   },
   {
-    'mark': 'Audi',
+    'brand': 'Audi',
     'model': 'A5',
-    'zeroto100': 8.9,
+    'zeroToHundred': 8.9,
     'energyClass': 'B',
     'power': 110,
-    'topspeed': 200,
-    'pic':
+    'speed': 200,
+    'picture':
         'https://www.audi-macon.fr/content/dam/iph/generic-assets/models/a4/a4-limousine-2019/stage/4096x1280_AA4_L_191004.jpg/_jcr_content/renditions/cq5dam.thumbnail.720.406.iph.png?imwidth=720&imdensity=1',
     'location': 'Marseille',
     'price': 79.0
   },
   {
-    'mark': 'Audi',
+    'brand': 'Audi',
     'model': 'A6',
-    'zeroto100': 17.9,
+    'zeroToHundred': 17.9,
     'energyClass': 'B',
     'power': 110,
-    'topspeed': 200,
-    'pic':
+    'speed': 200,
+    'picture':
         'https://www.audi-macon.fr/content/dam/iph/generic-assets/models/a4/a4-limousine-2019/stage/4096x1280_AA4_L_191004.jpg/_jcr_content/renditions/cq5dam.thumbnail.720.406.iph.png?imwidth=720&imdensity=1',
     'location': 'Paris',
     'price': 79.0
   },
   {
-    'mark': 'Audi',
+    'brand': 'Audi',
     'model': 'A7',
-    'zeroto100': 17.9,
+    'zeroToHundred': 17.9,
     'energyClass': 'B',
     'power': 110,
-    'topspeed': 200,
-    'pic':
+    'speed': 200,
+    'picture':
         'https://www.audi-macon.fr/content/dam/iph/generic-assets/models/a4/a4-limousine-2019/stage/4096x1280_AA4_L_191004.jpg/_jcr_content/renditions/cq5dam.thumbnail.720.406.iph.png?imwidth=720&imdensity=1',
     'location': 'Paris',
     'price': 79.0

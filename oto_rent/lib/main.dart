@@ -47,10 +47,10 @@ class HomeView extends StatelessWidget {
               itemCount: vehicles.length,
               itemBuilder: (context, index) {
                 final Map<String, Object> vehicle = vehicles[index];
-                final String brand = vehicle["mark"]?.toString() ?? "Marque inconnue";
+                final String brand = vehicle["brand"]?.toString() ?? "Marque inconnue";
                 final String model = vehicle["model"]?.toString() ?? "Modèle inconnu";
                 final String? price = vehicle["price"]?.toString();
-                final String location = vehicle["pic"]?.toString() ?? "";
+                final String location = vehicle["picture"]?.toString() ?? "";
                 return Card(
                   child: ListTile(
                     leading: Image.network(location, errorBuilder: (context, error, stackTrace) {

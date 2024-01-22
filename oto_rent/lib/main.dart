@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'VehicleDetailPage.dart';
-import 'data.dart';
+import 'package:oto_rent/pages/home_screen.dart';
 
 void main() {
   runApp(const MainApp());
@@ -28,121 +27,7 @@ class MainApp extends StatelessWidget {
         ),
         scaffoldBackgroundColor: Colors.grey[900],
       ),
-      home: const MyHomePage(title: title),
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({
-    super.key,
-    required this.title,
-  });
-
-  final String title;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(title,
-            style: TextStyle(
-              color: Theme.of(context).colorScheme.primary,
-              fontWeight: FontWeight.bold,
-            )),
-        centerTitle: true,
-        backgroundColor: Colors.grey[900],
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.settings),
-            tooltip: 'Paramètres',
-            onPressed: () {
-              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                  content: Text('Une snackBar comme ça pour rien...')));
-            },
-            color: Colors.white,
-          )
-        ],
-      ),
-      body: ListView.builder(
-        itemCount: vehicules.length,
-        itemBuilder: (context, index) {
-          final vehicule = vehicules[index];
-          final String price = vehicule['price'] != null
-              ? vehicule['price'].toString() + '€'
-              : 'Prix inconnu';
-          return Container(
-            height: 100, // Define a height for the Container
-            child: Card(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(15),
-              ),
-              elevation: 5,
-              shadowColor: Colors.black,
-              color: Colors.grey[800],
-              margin: const EdgeInsets.all(8.0),
-              child: Row(
-                children: [
-                  Expanded(
-                    flex: 1,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(15.0),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: NetworkImage('${vehicule['pic']}'),
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                      flex: 2,
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: ListTile(
-                          title: Text(
-                            '${vehicule['mark']} ${vehicule['model']}',
-                            style: const TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                            ),
-                          ),
-                          subtitle: Text(
-                            'Location: ${vehicule['location'] ?? 'Lieu inconnu'}',
-                            style: const TextStyle(
-                              fontSize: 14,
-                              color: Colors.grey,
-                            ),
-                          ),
-                          trailing: Text(
-                            // '${vehicule['price']}€',
-                            price,
-                            style: const TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.lightBlueAccent,
-                            ),
-                          ),
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) =>
-                                    VehicleDetailPage(vehicle: vehicule),
-                              ),
-                            );
-                          },
-                        ),
-                      )),
-                ],
-              ),
-            ),
-          );
-        },
-      ),
+      home: const HomeScreen(title: title),
     );
   }
 }

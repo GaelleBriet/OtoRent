@@ -1,15 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:oto_rent/models/vehicle_model.dart';
 
 class VehicleDetailPage extends StatelessWidget {
-  final Map<String, dynamic> vehicle;
 
   const VehicleDetailPage({Key? key, required this.vehicle}) : super(key: key);
+  final VehicleModel vehicle;
 
   @override
   Widget build(BuildContext context) {
+    final String brand = vehicle.brand ?? 'Marque inconnue';
+    final String model = vehicle.model ?? 'Modèle inconnu';
+    final String price = vehicle.price?.toString() ?? 'Prix inconnu';
+    final String imageUrl = vehicle.imageUrl ?? 'Erreur';
+    final String location =
+    vehicle.location != null ? '${vehicle.location}' : 'Lieu inconnu';
+    final String zeroTo100 = vehicle.zeroTo100?.toString() ?? 'Erreur';
+    final String power = vehicle.power?.toString() ?? 'Erreur';
+    final String topSpeed = vehicle.topSpeed?.toString() ?? 'Erreur';
+    final String energyClass = vehicle.energyClass ?? 'Erreur';
+
     return Scaffold(
       appBar: AppBar(
-        title: Text('${vehicle['mark']} ${vehicle['model']}',
+        title: Text('$brand $model',
             style: TextStyle(
               color: Theme.of(context).colorScheme.primary,
             )),
@@ -19,7 +31,7 @@ class VehicleDetailPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Image.network(
-              vehicle['pic'],
+              imageUrl ?? vehicle.imageUrl ?? "Erreur d'import de l'image",
               height: 200,
               width: double.infinity,
               fit: BoxFit.cover,
@@ -30,20 +42,17 @@ class VehicleDetailPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   _buildDetailCard(
-                      'Marque', '${vehicle['mark']}', Icons.directions_car),
+                      'Véhicule', '$brand $model', Icons.directions_car),
                   _buildDetailCard(
-                      'Modèle', '${vehicle['model']}', Icons.category),
+                      'Caractéristiques',
+                      '0 à 100 : $zeroTo100 sec.,'
+                          '\nPuissance : $power ch.,'
+                          '\nVitesse max : $topSpeed km/h.,'
+                          '\nClasse énergétique : $energyClass',
+                      Icons.speed),
                   _buildDetailCard(
-                      '0 à 100', '${vehicle['zeroto100']}s', Icons.speed),
-                  _buildDetailCard('Classe énergétique',
-                      '${vehicle['energyClass']}', Icons.bolt),
-                  _buildDetailCard(
-                      'Puissance', '${vehicle['power']} ch.', Icons.flash_on),
-                  _buildDetailCard('Vitesse maximale',
-                      '${vehicle['topspeed']} km/h.', Icons.speed),
-                  _buildDetailCard(
-                      'Location', '${vehicle['location']}', Icons.location_on),
-                  _buildDetailCard('Prix', '${vehicle['price']}€', Icons.euro),
+                      'Localisation', location, Icons.location_on),
+                  _buildDetailCard('Prix', '$price€ / jour', Icons.euro),
                 ],
               ),
             ),

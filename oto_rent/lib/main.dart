@@ -1,70 +1,40 @@
-import "package:flutter/material.dart";
-import "data.dart";
+import 'package:flutter/material.dart';
+
+import 'package:oto_rent/views/home_screen.dart';
 
 void main() {
-  runApp(const MainApp());
+  runApp(const MyApp());
 }
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
-  static const String title = "O'To Rent";
+  // Material Color blanc
+  static const MaterialColor blanc = MaterialColor(
+    0xFFFFFFFF,
+    <int, Color>{
+      50: Color(0xFFFFFFFF),
+      100: Color(0xFFFFFFFF),
+      200: Color(0xFFFFFFFF),
+      300: Color(0xFFFFFFFF),
+      400: Color(0xFFFFFFFF),
+      500: Color(0xFFFFFFFF),
+      600: Color(0xFFFFFFFF),
+      700: Color(0xFFFFFFFF),
+      800: Color(0xFFFFFFFF),
+      900: Color(0xFFFFFFFF),
+    },
+  );
 
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: title,
+      title: "O'To Rent",
       theme: ThemeData(
-        colorScheme: const ColorScheme.light(
-          primary: Color(0xFF5521CE),
-        ),
+        primarySwatch: blanc,
       ),
-      home: const HomeView(title: title),
-    );
-  }
-}
-
-class HomeView extends StatelessWidget {
-  const HomeView({
-    super.key,
-    required this.title,
-  });
-
-  final String title;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-          title: Text(title, style: const TextStyle(color: Color.fromARGB(255, 85, 33, 206))),
-          elevation: 0,
-          centerTitle: true),
-      body: Column(
-        children: [
-          const Text("Liste des véhicules disponibles"),
-          Expanded(
-            child: ListView.builder(
-              itemCount: vehicles.length,
-              itemBuilder: (context, index) {
-                final Map<String, Object> vehicle = vehicles[index];
-                final String brand = vehicle["brand"]?.toString() ?? "Marque inconnue";
-                final String model = vehicle["model"]?.toString() ?? "Modèle inconnu";
-                final String? price = vehicle["price"]?.toString();
-                final String location = vehicle["picture"]?.toString() ?? "";
-                return Card(
-                  child: ListTile(
-                    leading: Image.network(location, errorBuilder: (context, error, stackTrace) {
-                      return const Icon(Icons.error);
-                    }),
-                    title: Text("$brand ($model)"),
-                    subtitle: Text(price != null ? "$price €" : "Prix inconnu"),
-                  ),
-                );
-              },
-            ),
-          ),
-        ],
-      ),
+      home: const HomeScreen(title: "O'To Rent"),
     );
   }
 }

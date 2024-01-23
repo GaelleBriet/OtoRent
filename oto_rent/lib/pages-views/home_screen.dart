@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:oto_rent/services/vehicle_services.dart';
-import '../component/vehicle_list.dart';
+import '../widgets/vehicle_list.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({

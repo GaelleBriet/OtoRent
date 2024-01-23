@@ -1,5 +1,6 @@
 class VehicleDataSource {
   static const List<Map<String, Object>> vehicles = [
+  // static List<Map<String, Object>> getVehicles() => [
     {
       'mark': 'Audi',
       'model': 'A3',

@@ -5,6 +5,7 @@ import '../models/vehicle_model.dart';
 abstract class VehicleService {
   static List<VehicleModel> getVehicles() {
     //1 On récupère la donnée brute depuis la data source
+    // final List<Map<String, dynamic>>
     const List<Map<String, Object>> data = VehicleDataSource.vehicles;
 
     //2 On les transforme la donnée brute en représentation interne

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:oto_rent/pages/home_screen.dart';
+import 'package:oto_rent/pages-views/home_screen.dart';
 
 void main() {
   runApp(const MainApp());

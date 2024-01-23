@@ -36,7 +36,7 @@ class VehicleCard extends StatelessWidget {
                 child: Container(
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: NetworkImage('$imageUrl}'),
+                      image: NetworkImage(imageUrl),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -64,7 +64,7 @@ class VehicleCard extends StatelessWidget {
                       ),
                     ),
                     trailing: Text(
-                      price,
+                      '${price}€',
                       style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,

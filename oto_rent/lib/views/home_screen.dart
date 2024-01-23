@@ -5,9 +5,9 @@ import 'package:oto_rent/services/vehicle_services.dart';
 import 'package:oto_rent/widgets/vehicle_list.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key, required this.title});
-
   final String title;
+
+  const HomeScreen({super.key, required this.title});
 
   @override
   Widget build(BuildContext context) {

@@ -4,12 +4,12 @@ import 'package:oto_rent/widgets/vehicle_card.dart';
 import 'package:oto_rent/models/vehicle_model.dart';
 
 class VehicleList extends StatelessWidget {
+  final List<VehicleModel> vehicles;
+
   const VehicleList({
     super.key,
     required this.vehicles,
   });
-
-  final List<VehicleModel> vehicles;
 
   @override
   Widget build(BuildContext context) {

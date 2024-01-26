@@ -6,10 +6,13 @@ import 'package:oto_rent/models/vehicle_model.dart';
 import 'package:oto_rent/services/vehicle_services.dart';
 import 'package:oto_rent/widgets/vehicle_list.dart';
 
-class HomeScreen extends StatelessWidget {
+import '../widgets/fail_widget.dart';
+import '../widgets/loading_widget.dart';
+
+class VehiclesView extends StatelessWidget {
   final String title;
 
-  const HomeScreen({super.key, required this.title,     required this.agencyId,});
+  const VehiclesView({super.key, required this.title,     required this.agencyId,});
 
   static const String pageName = 'vehicles';
 
@@ -41,19 +44,13 @@ class HomeScreen extends StatelessWidget {
               ],
             );
             } else if (state is VehicleStateError) {
-              return Column(
-                children: [
-                  Text(state.message),
-                  ElevatedButton(
-                    onPressed: () =>
-                        context.read<VehicleCubit>().fetchVehicles(agencyId: agencyId),
-                    child: const Text('Réessayer'),
-                  )
-                ],
+              return FailWidget(message: state.message, onRetry: () => context
+                  .read<VehicleCubit>()
+                  .fetchVehicles(agencyId: agencyId),
               );
 
             } else {
-              return const SizedBox.shrink();
+              return const LoadingWidget();
             }
           },
         ),

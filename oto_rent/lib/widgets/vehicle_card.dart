@@ -1,5 +1,8 @@
 import "package:flutter/material.dart";
+import "package:flutter_bloc/flutter_bloc.dart";
 import "package:oto_rent/models/vehicle_model.dart";
+
+import "../bloc/vehicle_cubit.dart";
 
 class VehicleCard extends StatelessWidget {
   final VehicleModel vehicle;
@@ -10,6 +13,7 @@ class VehicleCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: ListTile(
+        onTap: () => context.read<VehicleCubit>().rent(vehicle.id ?? -1),
         leading: Image.network(vehicle.imageUrl!,
             errorBuilder: (context, error, stackTrace) {
           return const Icon(Icons.error);

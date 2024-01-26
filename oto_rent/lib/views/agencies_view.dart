@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:oto_rent/views/home_screen.dart';
+import 'package:oto_rent/views/vehicles_view.dart';
+import 'package:oto_rent/widgets/fail_widget.dart';
 
 import '../bloc/agencies_cubit.dart';
+import '../widgets/agency_liste.dart';
+import '../widgets/loading_widget.dart';
 
 class AgenciesView extends StatelessWidget {
   const AgenciesView({super.key});
@@ -22,37 +25,14 @@ class AgenciesView extends StatelessWidget {
           child: BlocBuilder<AgenciesCubit, AgenciesState>(
             builder: (_, state) {
               if (state is AgenciesStateSuccess){
-                final agencies = state.agencies;
-                return ListView.builder(
-                  itemCount: agencies.length,
-                    itemBuilder: (context, index){
-                      final agency =agencies.elementAt(index);
-                      return ListTile(
-                        onTap: () {
-                          context.pushNamed(HomeScreen.pageName, pathParameters: {
-                            'agencyId': agency.id.toString(),
-                          });
-                        },
-                        title: Text(agency.name ?? 'Nom inconnu'),
-                        subtitle: Text(agency.address ?? 'Adresse inconnue'),
-                      );
-                    }
-                );
+                return AgencyList(agencies: state.agencies);
               }else if (state is AgenciesStateError) {
-                return Column(
-                  children: [
-                    Text(state.message),
-                    ElevatedButton(
-                      onPressed: () =>
-                          context.read<AgenciesCubit>().fetchAgencies(),
-                      child: const Text('Réessayer'),
-                    )
-                  ],
+                return FailWidget(
+                  message: state.message,
+                  onRetry: () => context.read<AgenciesCubit>().fetchAgencies(),
                 );
               }
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
+              return const LoadingWidget();
             },
           )
     ),

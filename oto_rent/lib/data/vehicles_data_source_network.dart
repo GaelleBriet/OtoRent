@@ -23,4 +23,33 @@ abstract class VehiclesDataSourceNetwork  {
     //
     // return bodyList.cast<Map<String, dynamic>>();
   }
+
+  static Future<void> rentVehicle(int vehicleId, DateTime date) async {
+    final Uri endpoint = Uri.parse('$baseUrl/rentals');
+
+    // création du body
+    final body = {
+      'vehicle_id': vehicleId,
+      'day': date.toString(),
+    };
+
+    //création du header
+    final header = {
+      'Content-Type': 'application/json',
+    };
+
+    // envoi de la requête
+    final http.Response response = await http.post(
+      endpoint,
+      headers: header,
+      body: jsonEncode(body),
+    );
+
+    // vérification du code de retour
+    if(response.statusCode != 200){
+      throw Exception('Cannot rent vehicle $vehicleId - '
+          '${response.statusCode} : ${response.body}'
+      );
+    }
+  }
 }

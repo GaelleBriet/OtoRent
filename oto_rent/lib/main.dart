@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:oto_rent/bloc/vehicle_cubit.dart';
 
-import 'package:oto_rent/views/home_screen.dart';
+import 'package:oto_rent/views/vehicles_view.dart';
 
 import 'core/router/app_router.dart';
 

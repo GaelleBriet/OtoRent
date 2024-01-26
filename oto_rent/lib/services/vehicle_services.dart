@@ -15,4 +15,8 @@ abstract class VehicleServices {
 
     return vehiclesFiltered;
   }
+
+  static Future<void> rentVehicle(int vehicleId, DateTime date) {
+    return VehiclesDataSourceNetwork.rentVehicle(vehicleId, date);
+  }
 }

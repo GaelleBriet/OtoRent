@@ -23,20 +23,20 @@ class VehicleModel {
 
   VehicleModel(
       {required this.brand,
-        required this.model,
-        required this.zeroToHundred,
-        required this.energyClass,
-        required this.power,
-        required this.speed,
-        required this.picture,
-        required this.location,
-        required this.price});
-
+      required this.model,
+      required this.zeroToHundred,
+      required this.energyClass,
+      required this.power,
+      required this.speed,
+      required this.picture,
+      required this.location,
+      required this.price});
 
   String get description =>
       "Le véhicule est un(e) $brand ($model), il accélère de 0 à 100 km/h en $zeroToHundred secondes, est de classe énergétique $energyClass, a une puissance de $power chevaux, peut atteindre une vitesse de $speed km/h, et est disponible à $location pour $price € par jour.";
 
-  factory VehicleModel.fromJson(Map<String, dynamic> json) => _$VehicleModelFromJson(json);
+  factory VehicleModel.fromJson(Map<String, dynamic> json) =>
+      _$VehicleModelFromJson(json);
 
   @override
   String toString() {

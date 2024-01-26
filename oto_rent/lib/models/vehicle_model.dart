@@ -1,82 +1,53 @@
 class VehicleModel {
-  final String brand;
-  final String model;
-  final double zeroToHundred;
-  final String energyClass;
-  final int power;
-  final int speed;
-  final String picture;
-  final String location;
-  final double price;
+  final int? id;
+  final String? mark;
+  final String? model;
+  final double? zeroTo100;
+  final String? ecoClass;
+  final int? topSpeed;
+  final int? power;
+  final String? imageUrl;
+  final int? price;
+  final int? agencyId;
 
-  String get description =>
-      "Le véhicule est un(e) $brand ($model), il accélère de 0 à 100 km/h en $zeroToHundred secondes, est de classe énergétique $energyClass, a une puissance de $power chevaux, peut atteindre une vitesse de $speed km/h, et est disponible à $location pour $price € par jour.";
-
-  VehicleModel(
-      {required this.brand,
-      required this.model,
-      required this.zeroToHundred,
-      required this.energyClass,
-      required this.power,
-      required this.speed,
-      required this.picture,
-      required this.location,
-      required this.price});
+  const VehicleModel({
+    this.id,
+    this.mark,
+    this.model,
+    this.zeroTo100,
+    this.ecoClass,
+    this.topSpeed,
+    this.power,
+    this.imageUrl,
+    this.price,
+    this.agencyId,
+  });
 
   factory VehicleModel.fromJson(Map<String, dynamic> json) {
     return VehicleModel(
-      brand: json['brand'],
+      mark: json['mark'],
       model: json['model'],
-      zeroToHundred: json['zeroToHundred'],
-      energyClass: json['energyClass'],
+      zeroTo100: json['zeroto100'],
+      ecoClass: json['ecoclass'],
       power: json['power'],
-      speed: json['speed'],
-      picture: json['picture'],
-      location: json['location'],
+      topSpeed: json['topspeed'],
+      imageUrl: json['picture'],
       price: json['price'],
+      agencyId: json['agency_id'],
     );
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['brand'] = brand;
-    data['model'] = model;
-    data['zeroToHundred'] = zeroToHundred;
-    data['energyClass'] = energyClass;
-    data['power'] = power;
-    data['speed'] = speed;
-    data['picture'] = picture;
-    data['location'] = location;
-    data['price'] = price;
-    return data;
-  }
-
-  VehicleModel copyWith({
-    String? brand,
-    String? model,
-    double? zeroToHundred,
-    String? energyClass,
-    int? power,
-    int? speed,
-    String? picture,
-    String? location,
-    double? price,
-  }) {
-    return VehicleModel(
-      brand: brand ?? this.brand,
-      model: model ?? this.model,
-      zeroToHundred: zeroToHundred ?? this.zeroToHundred,
-      energyClass: energyClass ?? this.energyClass,
-      power: power ?? this.power,
-      speed: speed ?? this.speed,
-      picture: picture ?? this.picture,
-      location: location ?? this.location,
-      price: price ?? this.price,
-    );
-  }
-
-  @override
-  String toString() {
-    return description;
+    return {
+      'mark': mark,
+      'model': model,
+      'zeroto100': zeroTo100,
+      'ecoclass': ecoClass,
+      'power': power,
+      'topspeed': topSpeed,
+      'picture': imageUrl,
+      'price': price,
+      'agency_id': agencyId,
+    };
   }
 }

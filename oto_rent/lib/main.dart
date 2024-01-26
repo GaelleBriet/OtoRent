@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:oto_rent/bloc/vehicle_cubit.dart';
 
 import 'package:oto_rent/views/home_screen.dart';
 
+import 'core/router/app_router.dart';
+
 void main() {
+  GoRouter.optionURLReflectsImperativeAPIs = true;
   runApp(const MyApp());
 }
 
@@ -29,12 +35,16 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: "O'To Rent",
-      theme: ThemeData(
-        primarySwatch: blanc,
+    return BlocProvider(
+      create: (context) => VehicleCubit(),
+      child: MaterialApp.router(
+        title: "O'To Rent",
+        theme: ThemeData(
+          primarySwatch: blanc,
+        ),
+        // home: const HomeScreen(title: "O'To Rent"),
+        routerConfig: AppRouter.router,
       ),
-      home: const HomeScreen(title: "O'To Rent"),
     );
   }
 }

@@ -10,10 +10,11 @@ class VehicleCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: ListTile(
-        leading: Image.network(vehicle.picture, errorBuilder: (context, error, stackTrace) {
+        leading: Image.network(vehicle.imageUrl!,
+            errorBuilder: (context, error, stackTrace) {
           return const Icon(Icons.error);
         }),
-        title: Text("${vehicle.brand} (${vehicle.model})"),
+        title: Text("${vehicle.mark} (${vehicle.model})"),
         subtitle: Text("${vehicle.price} €"),
       ),
     );

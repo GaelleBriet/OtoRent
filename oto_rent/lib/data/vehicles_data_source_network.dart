@@ -26,6 +26,7 @@ abstract class VehiclesDataSourceNetwork  {
 
   static Future<void> rentVehicle(int vehicleId, DateTime date) async {
     final Uri endpoint = Uri.parse('$baseUrl/rentals');
+    const String token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Mywicm9sZSI6InVzZXIiLCJpYXQiOjE2OTY1MDM1NjUsImV4cCI6MTY5NjUwNzE2NX0.jfnzEjC03TbL15-41g6mOYiB5rdtMRiMA_mVSU2MEdc';
 
     // création du body
     final body = {
@@ -36,6 +37,7 @@ abstract class VehiclesDataSourceNetwork  {
     //création du header
     final header = {
       'Content-Type': 'application/json',
+      'Authorization': 'Bearer $token'
     };
 
     // envoi de la requête

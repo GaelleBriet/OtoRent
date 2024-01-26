@@ -20,6 +20,9 @@ class AgencyTile extends StatelessWidget {
       },
       title: Text(agency.name ?? 'Nom inconnu'),
       subtitle: Text(agency.address ?? 'Adresse inconnue'),
+      // ajouter latitude et longitude
+      trailing: Text('Coordonées GPS :${agency.latitude}, '
+          '${agency.longitude}'),
     );
   }
   }

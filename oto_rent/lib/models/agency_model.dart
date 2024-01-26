@@ -4,6 +4,8 @@ class AgencyModel {
   final String? address;
   final String? email;
   final String? phone;
+  final double? latitude;
+  final double? longitude;
 
   const AgencyModel({
     required this.id,
@@ -11,6 +13,8 @@ class AgencyModel {
     required this.address,
     required this.email,
     required this.phone,
+    required this.latitude,
+    required this.longitude,
   });
 
   factory AgencyModel.fromJson(Map<String, dynamic> json) {
@@ -20,6 +24,8 @@ class AgencyModel {
       address: json['address'],
       email: json['email'],
       phone: json['phone'],
+      latitude: json['latitude'],
+      longitude: json['longitude'],
     );
   }
 }

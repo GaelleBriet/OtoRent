@@ -51,9 +51,13 @@ abstract class GeolocationDataSource {
     }
     // retourne la position gps
     final position = await Geolocator.getCurrentPosition();
+
     return LocationModel(
       latitude: position.latitude,
       longitude: position.longitude,
     );
+
+    // utilisation de la factory
+    // return LocationModel.fromPosition(position);
   }
 }

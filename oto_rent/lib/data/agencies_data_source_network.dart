@@ -2,7 +2,8 @@ import "dart:convert";
 import "package:http/http.dart" as http;
 
 abstract class AgenciesDataSourceNetwork  {
-  static const baseUrl = 'http://localhost:3000';
+  // static const baseUrl = 'http://localhost:3000';
+  static const baseUrl = 'http://10.0.2.2:3000';
 
   static Future<List<Map<String, dynamic>>> getAgencies() async {
     final Uri endpoint = Uri.parse('$baseUrl/agencies');

@@ -1,3 +1,5 @@
+import 'package:geolocator/geolocator.dart';
+
 class LocationModel {
   final double latitude;
   final double longitude;
@@ -8,6 +10,14 @@ class LocationModel {
     return LocationModel(
       latitude: json['latitude'],
       longitude: json['longitude'],
+    );
+  }
+
+  // utilisation d'une factory pour data surce
+  factory LocationModel.fromPosition(Position position) {
+    return LocationModel(
+      latitude: position.latitude,
+      longitude: position.longitude,
     );
   }
 

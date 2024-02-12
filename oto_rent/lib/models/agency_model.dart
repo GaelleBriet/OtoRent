@@ -28,4 +28,24 @@ class AgencyModel {
       longitude: json['longitude'],
     );
   }
+
+  AgencyModel copyWith({
+    int? id,
+    String? name,
+    String? address,
+    String? email,
+    String? phone,
+    double? latitude,
+    double? longitude,
+  }) {
+    return AgencyModel(
+      id: id ?? this.id,
+      name: name ?? this.name,
+      address: address ?? this.address,
+      email: email ?? this.email,
+      phone: phone ?? this.phone,
+      latitude: latitude ?? this.latitude,
+      longitude: longitude ?? this.longitude,
+    );
+  }
 }

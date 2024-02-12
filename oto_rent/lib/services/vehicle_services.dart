@@ -16,6 +16,16 @@ abstract class VehicleServices {
     return vehiclesFiltered;
   }
 
+  static Future<List<VehicleModel>> getAllVehicles() async {
+    final List<Map<String, dynamic>> data =
+    await VehiclesDataSourceNetwork.getVehicles();
+
+    final List<VehicleModel> vehicles =
+    data.map((jsonVehicle) => VehicleModel.fromJson(jsonVehicle)).toList();
+
+    return vehicles;
+  }
+
   static Future<void> rentVehicle(int vehicleId, DateTime date) {
     return VehiclesDataSourceNetwork.rentVehicle(vehicleId, date);
   }

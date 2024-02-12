@@ -2,6 +2,8 @@ import 'package:go_router/go_router.dart';
 import 'package:oto_rent/views/agencies_view.dart';
 import 'package:oto_rent/views/vehicles_view.dart';
 
+import 'package:oto_rent/views/all_vehicles_view.dart';
+
 abstract class AppRouter {
   static GoRouter router = GoRouter(
     initialLocation: '/agencies',
@@ -19,6 +21,11 @@ abstract class AppRouter {
         path: '/agencies',
         name: AgenciesView.pageName,
         builder: (context, state) => const AgenciesView(),
+      ),
+      GoRoute(
+        path: '/allVehicles',
+        name: AllVehiclesView.pageName,
+        builder: (context, state) => const AllVehiclesView(),
       )
     ],
   );

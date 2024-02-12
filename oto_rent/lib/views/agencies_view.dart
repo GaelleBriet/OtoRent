@@ -8,6 +8,7 @@ import 'package:oto_rent/widgets/fail_widget.dart';
 import '../bloc/agencies_cubit.dart';
 import '../widgets/agency_liste.dart';
 import '../widgets/loading_widget.dart';
+import 'all_vehicles_view.dart';
 
 class AgenciesView extends StatelessWidget {
   const AgenciesView({super.key});
@@ -18,7 +19,13 @@ class AgenciesView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Agencies'),
+        title: const Text('Liste des agences'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.directions_car),
+            onPressed: () => context.pushNamed(AllVehiclesView.pageName),
+          )
+        ],
       ),
       body: BlocProvider(
           create: (_) => AgenciesCubit()..fetchAgencies(),

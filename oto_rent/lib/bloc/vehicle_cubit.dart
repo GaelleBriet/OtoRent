@@ -21,6 +21,17 @@ class VehicleCubit extends Cubit<VehicleState>{
     }
   }
 
+  Future<void> fetchAllVehicles() async {
+    emit(VehicleStateLoading());
+
+    try {
+      final vehicles = await VehicleServices.getAllVehicles();
+      emit(VehicleStateSuccess(vehicles));
+    } catch (e) {
+      emit(VehicleStateError(e.toString()));
+    }
+  }
+
   Future<void> rent(int vehicleId) async {
     try {
       await VehicleServices.rentVehicle(vehicleId, DateTime.now());

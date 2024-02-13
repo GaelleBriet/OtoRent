@@ -16,38 +16,39 @@ class MarkdownService {
     return markdown;
   }
 
-  // Future<void> saveFile(String markdownContent) async {
-  //   final result = await FilePicker.platform.getDirectoryPath();
-  //
-  //   if (result == null) {
-  //     throw FlutterError('No directory selected');
-  //   }
-  //
-  //   final filePath = '$result/vehicles.md';
-  //   final file = File(filePath);
-  //   await file.writeAsString(markdownContent);
-  // }
-
   Future<void> saveFile(String markdownContent) async {
-    final directory = await getApplicationDocumentsDirectory();
-    final filePath = '${directory.path}/vehicles.md';
+    final result = await FilePicker.platform.getDirectoryPath();
+
+    if (result == null) {
+      throw FlutterError('No directory selected');
+    }
+
+    final filePath = '$result/vehicles.md';
     final file = File(filePath);
     await file.writeAsString(markdownContent);
   }
 
-  // Future<bool> fileExists(String fileName) async {
-  //   final result = await FilePicker.platform.getDirectoryPath();
-  //   if (result == null) {
-  //     throw FlutterError('No directory selected');
-  //   }
-  //   final filePath = '$result/$fileName';
+  // Future<void> saveFile(String markdownContent) async {
+  //   final directory = await getApplicationDocumentsDirectory();
+  //   final filePath = '${directory.path}/vehicles.md';
   //   final file = File(filePath);
-  //   return file.exists();
+  //   await file.writeAsString(markdownContent);
   // }
+
   Future<bool> fileExists(String fileName) async {
-    final directory = await getApplicationDocumentsDirectory();
-    final filePath = '${directory.path}/$fileName';
+    final result = await FilePicker.platform.getDirectoryPath();
+    if (result == null) {
+      throw FlutterError('No directory selected');
+    }
+    final filePath = '$result/$fileName';
     final file = File(filePath);
     return file.exists();
   }
+
+  // Future<bool> fileExists(String fileName) async {
+  //   final directory = await getApplicationDocumentsDirectory();
+  //   final filePath = '${directory.path}/$fileName';
+  //   final file = File(filePath);
+  //   return file.exists();
+  // }
 }

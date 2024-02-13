@@ -2,7 +2,7 @@ import 'package:go_router/go_router.dart';
 import 'package:oto_rent/views/agencies_view.dart';
 import 'package:oto_rent/views/vehicles_view.dart';
 
-import 'package:oto_rent/views/all_vehicles_view.dart';
+import 'package:oto_rent/views/all_vehicles_views.dart';
 
 abstract class AppRouter {
   static GoRouter router = GoRouter(
@@ -20,13 +20,24 @@ abstract class AppRouter {
       GoRoute(
         path: '/agencies',
         name: AgenciesView.pageName,
-        builder: (context, state) => const AgenciesView(),
+        pageBuilder: (context, state) => const NoTransitionPage(
+          child: AgenciesView(),
+        ),
       ),
+      // GoRoute(
+      //   path: '/allVehicles',
+      //   name: AllVehiclesView.pageName,
+      //   builder: (context, state) => const AllVehiclesView(),
+      // ),
       GoRoute(
-        path: '/allVehicles',
+        path: '/all-vehicles',
         name: AllVehiclesView.pageName,
-        builder: (context, state) => const AllVehiclesView(),
+        pageBuilder: (context, state) =>
+        const NoTransitionPage(child: AllVehiclesView()),
       )
     ],
   );
 }
+
+
+

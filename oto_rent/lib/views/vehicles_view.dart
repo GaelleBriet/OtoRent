@@ -7,6 +7,7 @@ import 'package:oto_rent/services/vehicle_services.dart';
 import 'package:oto_rent/widgets/vehicle_list.dart';
 
 import '../bloc/rental_cubit.dart';
+import '../widgets/bottom_nav_bar.dart';
 import '../widgets/fail_widget.dart';
 import '../widgets/loading_widget.dart';
 
@@ -102,6 +103,9 @@ class VehiclesView extends StatelessWidget {
           ),
         ),
       ),
+      // bottomNavigationBar: const BottomNavBar(
+      //   currentIndex: 0,
+      // ),
     );
   }
 }

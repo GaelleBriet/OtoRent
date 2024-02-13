@@ -39,5 +39,13 @@ class VehicleCubit extends Cubit<VehicleState>{
       emit(VehicleStateError(e.toString()));
     }
   }
+
+  Future<void> exportVehicles() async {
+    try {
+      await VehicleServices.exportVehicles();
+    } catch (e) {
+      emit(VehicleStateError(e.toString()));
+    }
+  }
 }
 

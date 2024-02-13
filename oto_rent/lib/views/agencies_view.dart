@@ -3,12 +3,13 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:oto_rent/views/vehicles_view.dart';
+import 'package:oto_rent/widgets/bottom_nav_bar.dart';
 import 'package:oto_rent/widgets/fail_widget.dart';
 
 import '../bloc/agencies_cubit.dart';
 import '../widgets/agency_liste.dart';
 import '../widgets/loading_widget.dart';
-import 'all_vehicles_view.dart';
+import 'all_vehicles_view2.dart';
 
 class AgenciesView extends StatelessWidget {
   const AgenciesView({super.key});
@@ -43,6 +44,9 @@ class AgenciesView extends StatelessWidget {
             },
           )
     ),
+      bottomNavigationBar: const BottomNavBar(
+        currentIndex: 0,
+      ),
     );
   }
 }

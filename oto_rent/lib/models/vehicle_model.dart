@@ -50,4 +50,9 @@ class VehicleModel {
       'agency_id': agencyId,
     };
   }
+
+  String toMarkdown() {
+    return '''### $mark - $model
+    Prix: $price''';
+  }
 }
